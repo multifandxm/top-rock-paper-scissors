@@ -9,8 +9,8 @@
     
     <script>
         function getComputerChoice() {
-            let randomNumber = Math.floor (Math.random() * 3);
-            switch (randomNumber) {
+            let computerChoice = Math.floor (Math.random() * 3);
+            switch (computerChoice) {
                 case 0:
                     return "rock";
                 case 1:
@@ -21,12 +21,33 @@
         }
         
         function getHumanChoice() {
-            let choice = prompt("Type your choice!", "");
-            return choice.toLowerCase();
+            let humanChoice = prompt("Type your choice!", "");
+            return humanChoice.toLowerCase();
         }
         
        const humanScore = 0
        const computerScore = 0
+
+       function playRound(humanChoice, computerChoice) {
+        if (computerChoice === "rock" && humanChoice === "rock" ||
+            computerChoice === "paper" && humanChoice === "paper" ||
+            computerChoice === "scissors" && humanChoice === "scissors") {
+                console.log("It's a tie!");
+            } else if (computerChoice === "rock" && humanChoice === "paper" ||
+                computerChoice === "scissors" && humanChoice === "rock" ||
+                computerChoice === "paper" && humanChoice === "scissors") {
+                    console.log("You win this round!");
+                } else {
+                    console.log("You lose this round :(")
+                }
+       }
+
+      const humanSelection = getHumanChoice();
+      const computerSelection = getComputerChoice();
+       
+      function playGame() {
+        playRound(humanSelection, computerSelection)
+      }
     </script>
 </body>
 </html>
