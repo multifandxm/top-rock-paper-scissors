@@ -8,46 +8,16 @@
 <body>
     
     <script>
+        //Write logic for computer choice//
         function getComputerChoice() {
-            let computerChoice = Math.floor (Math.random() * 3);
-            switch (computerChoice) {
-                case 0:
-                    return "rock";
-                case 1:
-                    return "paper";
-                case 3:
-                    return "scissors";
-            }
+            //array of options to choose from//
+            let choice = ["rock", "paper", "scissors"];
+            //return random option depending on number by 3, rounded down by floor//
+            return choice[Math.floor(Math.random() * choice.length)];
         }
-        
-        function getHumanChoice() {
-            let humanChoice = prompt("Type your choice!", "");
-            return humanChoice.toLowerCase();
-        }
-        
-       const humanScore = 0
-       const computerScore = 0
 
-       function playRound(humanChoice, computerChoice) {
-        if (computerChoice === "rock" && humanChoice === "rock" ||
-            computerChoice === "paper" && humanChoice === "paper" ||
-            computerChoice === "scissors" && humanChoice === "scissors") {
-                console.log("It's a tie!");
-            } else if (computerChoice === "rock" && humanChoice === "paper" ||
-                computerChoice === "scissors" && humanChoice === "rock" ||
-                computerChoice === "paper" && humanChoice === "scissors") {
-                    console.log("You win this round!");
-                } else {
-                    console.log("You lose this round :(")
-                }
-       }
-
-      const humanSelection = getHumanChoice();
-      const computerSelection = getComputerChoice();
-       
-      function playGame() {
-        playRound(humanSelection, computerSelection)
-      }
+        console.log(getComputerChoice());
+        
     </script>
 </body>
 </html>
