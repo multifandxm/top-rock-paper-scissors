@@ -8,16 +8,21 @@
 <body>
     
     <script>
-        //Write logic for computer choice//
+        //write logic for computer choice//
         function getComputerChoice() {
             //array of options to choose from//
-            let choice = ["rock", "paper", "scissors"];
+            const choiceComputer = ["rock", "paper", "scissors"];
             //return random option depending on number by 3, rounded down by floor//
             return choice[Math.floor(Math.random() * choice.length)];
         }
-
-        console.log(getComputerChoice());
-        
+        //write logic for human choice//
+        function getHumanChoice(){
+            //prompt to get the input//
+            const choiceHuman = prompt("What's your choice?", "");
+            //return input always in lowercase//
+            return choiceHuman.toLowerCase();
+        }
+    
     </script>
 </body>
 </html>
