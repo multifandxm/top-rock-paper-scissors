@@ -8,21 +8,58 @@
 <body>
     
     <script>
-        //write logic for computer choice//
+        //write logic for computer choice:
         function getComputerChoice() {
-            //array of options to choose from//
-            const choiceComputer = ["rock", "paper", "scissors"];
-            //return random option depending on number by 3, rounded down by floor//
-            return choice[Math.floor(Math.random() * choice.length)];
+            //array of options to choose from:
+            const computerChoice = ["rock", "paper", "scissors"];
+            //return random option depending on number by 3, rounded down by floor:
+            return computerChoice[Math.floor(Math.random() * computerChoice.length)];
         }
-        //write logic for human choice//
+
+        //write logic for human choice:
         function getHumanChoice(){
-            //prompt to get the input//
-            const choiceHuman = prompt("What's your choice?", "");
-            //return input always in lowercase//
-            return choiceHuman.toLowerCase();
+            //prompt to get the input:
+            const humanChoice = prompt("What's your choice?", "");
+            //return input always in lowercase:
+            return humanChoice.toLowerCase();
         }
-    
+
+        //var to keep track of scores:
+        let humanScore = 0;
+        let computerScore = 0;
+
+        //logic to play a single round:
+        function playRound(humanChoice, computerChoice) {
+            //if both players have the same answer:
+            if (humanChoice === computerChoice) {
+                const tie = 
+                    `This round is a tie! ${humanChoice} loves ${computerChoice}`;
+                
+                //log tie message:
+                console.log(tie);
+            } else if (
+                humanChoice === "rock" && computerChoice === "scissors" ||
+                humanChoice === "paper" && computerChoice === "rock" ||
+                humanChoice === "scissors" && computerChoice === "paper"
+            ) {
+                const win = 
+                    `You win this round! ${humanChoice} beats ${computerChoice}`;
+                
+                console.log(win);
+            } else {
+                const lose =
+                    `You lose this round! ${computerChoice} beats ${humanChoice}`;
+                
+                console.log(lose);
+            }
+        }
+
+        //set where the input for the function comes from:
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+    //give parameters to playRound function to get the input:
+    playRound(humanSelection, computerSelection);
     </script>
 </body>
 </html>
